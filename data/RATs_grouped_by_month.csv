@@ -1,0 +1,8 @@
+Month ,# envelopes sent out,# tests received ,# tests that passed,
+2023-08,100,13,1,caveat: some may be the ones that had barcodes fall off
+2023-09,1470,37,7,
+2023-10,1387,39,18,
+2023-11,1905,33,21,
+2023-12,300,48,29,
+2024-01,675,28,17,
+2024-02,950,32,17,
