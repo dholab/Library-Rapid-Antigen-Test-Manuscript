@@ -40,5 +40,5 @@ two_counts_plot  <- test_counts |>
   theme_minimal()
 
 #
-ggsave("visuals/two_counts_plot.pdf", all_counts_plot,
+ggsave("visuals/two_counts_plot.pdf", two_counts_plot,
        height = 6, width = 8)
