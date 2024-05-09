@@ -6,11 +6,10 @@ library(ggplot2)
 # 
 csv_path <- "data/RATs_grouped_by_month.csv"
 
-# 
-test_counts <- read_csv(csv_path, trim_ws = TRUE, show_col_types = FALSE) |>
-  select(-`...5`)
+# read in the counts into memory
+test_counts <- read_csv(csv_path, trim_ws = TRUE, show_col_types = FALSE)
 
-#
+# make a bar plot of all counts through time
 all_counts_plot <- test_counts |>
   pivot_longer(
     cols = -Month,
@@ -22,11 +21,12 @@ all_counts_plot <- test_counts |>
   labs(title = "Count of Tests by Status per Month", x = "Month", y = "Count") +
   theme_minimal()
 
-#
+# save the all counts plot
 ggsave("visuals/all_counts_plot.pdf", all_counts_plot,
        height = 6, width = 8)
 
-# 
+# make a plot that only shows the number of envelopes received and the number
+# sequenced
 two_counts_plot  <- test_counts |>
   select(-`# envelopes sent out`) |>
   pivot_longer(
@@ -39,6 +39,6 @@ two_counts_plot  <- test_counts |>
   labs(title = "Count of Tests by Status per Month", x = "Month", y = "Count") +
   theme_minimal()
 
-#
+# save the plot with two bars
 ggsave("visuals/two_counts_plot.pdf", two_counts_plot,
        height = 6, width = 8)
