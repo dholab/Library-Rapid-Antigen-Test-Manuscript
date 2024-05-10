@@ -6,10 +6,11 @@ library(maps)
 library(leaflet)
 
 #
-library_data_path <- "data/Dane_County_Library_Addresses.txt"
+library_data_path <- "data/Dane_County_Library_Addresses.tsv"
 
 #
-library_df <- read_tsv(library_data_path, trim_ws = TRUE, show_col_types = FALSE)
+library_df <- read_tsv(library_data_path,
+                       skip = 2, trim_ws = TRUE, show_col_types = FALSE)
 
 # find the latitudes and longitudes for every row
 lat_lons <- lapply(library_df$`Library Address`, function(address) {

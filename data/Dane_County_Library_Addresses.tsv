@@ -1,7 +1,9 @@
+# PLEASE NOTE: The addresses for Cambridge Community Library and Monona Public
+# Library are approximate to assist with geocoding.
 Library Name	Library Address	In program?
 Belleville Public Library	"20 S Park St, Belleville, WI 53508"	FALSE
 Black Earth Public Library	"1210 Mills St, Black Earth, WI 53515"	FALSE
-Cambridge Community Library	"101 Spring Water Alley, Cambridge, WI 53523"	TRUE
+Cambridge Community Library	"200 Spring St, Cambridge, WI 53523"	TRUE
 Cross Plains Public Library	"2107 Julius St, Cross Plains, WI 53528"	TRUE
 Deerfield Public Library	"12 W Nelson St, Deerfield, WI 53531"	TRUE
 Deforest Area Public Library	"203 Library St, DeForest, WI 53532"	FALSE
@@ -19,7 +21,7 @@ Marshall Community Library	"605 Waterloo Rd, Marshall, WI 53559"	TRUE
 Mazomanie Free Library	"102 Brodhead St, Mazomanie, WI 53560"	FALSE
 E.D. Locke Public Library	"5920 Milwaukee St, McFarland, WI 53558"	FALSE
 Middleton Public Library	"7425 Hubbard Ave, Middleton, WI 53562"	FALSE
-Monona Public Library	"1000 Nichols Rd, Madison, WI 53716"	FALSE
+Monona Public Library	"5308 Healy Ln, Monona, WI 53716"	FALSE
 Mount Horeb Public Library	"105 Perimeter Rd, Mt Horeb, WI 53572"	FALSE
 Oregon Public Library	"200 N Alpine Pkwy, Oregon, WI 53575"	FALSE
 Stoughton Public Library	"304 S 4th St, Stoughton, WI 53589"	FALSE
@@ -27,4 +29,4 @@ Sun Prairie Public Library 	"1350 Linnerud Dr, Sun Prairie, WI 53590"	FALSE
 Verona Public Library 	"500 Silent St, Verona, WI 53593"	FALSE
 Waunakee Public Library	"201 N Madison St, Waunakee, WI 53597"	TRUE
 PHMDC E Washington Clinic	"2705 E. Washington Ave., Madison, WI 53704"	TRUE
-PHMDC The Atrium	"2300 S. Park St., Suite 2010, Madison, WI 53713"	TRUE
+PHMDC The Atrium	"2300 S. Park St., Madison, WI 53713"	TRUE
