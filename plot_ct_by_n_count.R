@@ -7,7 +7,7 @@ library(ggplot2)
 n_counts_path <- "data/final_counts.csv"
 cts_path <- "data/RAT_Ct_Data.txt"
 
-# read in the dataframes while trimming any unintentional whitespace 
+# read in the dataframes while trimming any unintentional whitespace
 n_counts_df <- read_csv(n_counts_path, trim_ws = TRUE, show_col_types = FALSE)
 ct_df <- read_tsv(cts_path, trim_ws = TRUE, show_col_types = FALSE)
 
@@ -32,8 +32,8 @@ plotting_df <- percentages |>
 ct_by_n <- plotting_df |>
   ggplot(aes(x = Ct, y = N_percentage)) +
   geom_point(size = 2.5, aes(color = Passing)) +
-  geom_smooth(method = "loess", se = TRUE, show.legend = FALSE) +
-  labs(x = "qPCR Cycle Threshold Value", y = "Percent ambiguous bases") + 
+  # geom_smooth(method = "loess", se = TRUE, show.legend = FALSE) +
+  labs(x = "qPCR Cycle Threshold Value", y = "Percent ambiguous bases") +
   theme_linedraw()
 
 # export the plot

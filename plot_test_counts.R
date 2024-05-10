@@ -3,7 +3,7 @@
 library(tidyverse)
 library(ggplot2)
 
-# 
+#
 csv_path <- "data/RATs_grouped_by_month.csv"
 
 # read in the counts into memory
@@ -19,7 +19,7 @@ all_counts_plot <- test_counts |>
   ggplot(aes(x = Month, y = Count, fill = Status)) +
   geom_bar(stat = "identity", position = position_dodge(width = 0.9)) +
   labs(title = "Count of Tests by Status per Month", x = "Month", y = "Count") +
-  theme_minimal()
+  theme_linedraw()
 
 # save the all counts plot
 ggsave("visuals/all_counts_plot.pdf", all_counts_plot,
@@ -37,7 +37,7 @@ two_counts_plot  <- test_counts |>
   ggplot(aes(x = Month, y = Count, fill = Status)) +
   geom_bar(stat = "identity", position = position_dodge(width = 0.9)) +
   labs(title = "Count of Tests by Status per Month", x = "Month", y = "Count") +
-  theme_minimal()
+  theme_linedraw()
 
 # save the plot with two bars
 ggsave("visuals/two_counts_plot.pdf", two_counts_plot,
