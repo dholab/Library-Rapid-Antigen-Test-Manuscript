@@ -26,7 +26,11 @@ clean_cts <- ct_df |>
 plotting_df <- percentages |>
   left_join(clean_cts, by = join_by(Sample_ID)) |>
   filter(!is.na(Ct)) |>
-  rename(Passing = `Pass?`)
+  rename(Passing = `Pass?`) |>
+  rename(N_count = N)
+
+# write out the plotting data for transparency
+write_tsv(plotting_df, "data/ct_by_n_plotting_data.tsv")
 
 # plot them
 ct_by_n <- plotting_df |>
