@@ -12,7 +12,7 @@ ct_df <- read_tsv(cts_path, trim_ws = TRUE, show_col_types = FALSE)
 # clean the ct dataframe
 clean_cts <- ct_df |>
   mutate(`Ct Value` = as.numeric(`Ct Value`)) |>
-  filter(!is.na(`Ct Value`))
+  filter(!is.na(`Ct Value`), `Ct Value` < 45)
 
 # write out the plotting data for transparency
 # write_tsv(clean_cts, "data/ct_by_n_plotting_data.tsv")
