@@ -9,6 +9,12 @@ csv_path <- "data/RATs_grouped_by_month.csv"
 # read in the counts into memory
 test_counts <- read_csv(csv_path, trim_ws = TRUE, show_col_types = FALSE)
 
+# create color palettes
+status_fills <- c(
+  "# tests received" = "#DD4124FF",
+  "# tests that passed" = "#0F85A0FF"
+)
+
 # make a bar plot of all counts through time
 all_counts_plot <- test_counts |>
   pivot_longer(
@@ -18,6 +24,7 @@ all_counts_plot <- test_counts |>
   ) |>
   ggplot(aes(x = Month, y = Count, fill = Status)) +
   geom_bar(stat = "identity", position = position_dodge(width = 0.9)) +
+  scale_fill_manual(values = status_fills) +
   labs(title = "Count of Tests by Status per Month", x = "Month", y = "Count") +
   theme_linedraw()
 
@@ -36,6 +43,7 @@ two_counts_plot  <- test_counts |>
   ) |>
   ggplot(aes(x = Month, y = Count, fill = Status)) +
   geom_bar(stat = "identity", position = position_dodge(width = 0.9)) +
+  scale_fill_manual(values = status_fills) +
   labs(title = "Count of Tests by Status per Month", x = "Month", y = "Count") +
   theme_linedraw()
 

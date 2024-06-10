@@ -23,6 +23,7 @@ ct_by_n <- clean_cts |>
   geom_point(size = 2.5, aes(color = Passing)) +
   # geom_smooth(method = "loess", se = TRUE, show.legend = FALSE) +
   labs(x = "qPCR Cycle Threshold Value") +
+  scale_color_manual(values = c("#DD4124FF", "#0F85A0FF")) +
   theme_linedraw()
 
 # export the plot
