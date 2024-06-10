@@ -78,7 +78,7 @@ plotting_df <- library_df |>
   mutate(`Legend Label` = as.factor(`Legend Label`))
 
 # generate the plot
-plotting_df |>
+simple_map <- plotting_df |>
   ggplot(aes(x = longitude, y = latitude, label = index)) +
   geom_sf(data = dane_co_limits, fill = alpha("white", 0.5),
           color = "black", inherit.aes = FALSE) +
@@ -95,3 +95,5 @@ plotting_df |>
     plot.margin = unit(c(1, 1, 1, 1), "lines"),
     legend.position = "right"
   )
+
+ggsave("visuals/library_map.pdf", simple_map, height = 5, width = 7)

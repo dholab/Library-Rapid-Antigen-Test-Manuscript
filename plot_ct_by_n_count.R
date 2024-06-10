@@ -24,7 +24,7 @@ ct_by_n <- clean_cts |>
   # geom_smooth(method = "loess", se = TRUE, show.legend = FALSE) +
   labs(x = "qPCR Cycle Threshold Value") +
   scale_color_manual(values = c("#DD4124FF", "#0F85A0FF")) +
-  theme_linedraw()
+  theme_minimal()
 
 # export the plot
 ggsave("visuals/ct_by_cov.pdf", ct_by_n, height = 5, width = 7)

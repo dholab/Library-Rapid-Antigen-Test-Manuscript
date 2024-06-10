@@ -26,7 +26,7 @@ all_counts_plot <- test_counts |>
   geom_bar(stat = "identity", position = position_dodge(width = 0.9)) +
   scale_fill_manual(values = status_fills) +
   labs(title = "Count of Tests by Status per Month", x = "Month", y = "Count") +
-  theme_linedraw()
+  theme_minimal()
 
 # save the all counts plot
 ggsave("visuals/all_counts_plot.pdf", all_counts_plot,
@@ -45,7 +45,7 @@ two_counts_plot  <- test_counts |>
   geom_bar(stat = "identity", position = position_dodge(width = 0.9)) +
   scale_fill_manual(values = status_fills) +
   labs(title = "Count of Tests by Status per Month", x = "Month", y = "Count") +
-  theme_linedraw()
+  theme_minimal()
 
 # save the plot with two bars
 ggsave("visuals/two_counts_plot.pdf", two_counts_plot,
