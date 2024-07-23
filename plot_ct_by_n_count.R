@@ -19,7 +19,7 @@ clean_cts <- ct_df |>
 write_tsv(clean_cts, "data/ct_by_n_plotting_data.tsv")
 
 # load fonts
-font_import()
+# font_import()
 loadfonts()
 
 # plot them
@@ -27,13 +27,22 @@ ct_by_n <- clean_cts |>
   ggplot(aes(x = `Ct Value`, y = `% Coverage at >10x Depth`)) +
   geom_point(size = 2.5, aes(color = Passing)) +
   # geom_smooth(method = "loess", se = TRUE, show.legend = FALSE) +
-  labs(x = "qPCR Cycle Threshold Value") +
+  labs(
+    x = "qPCR cycle threshold value",
+    y = "% coverage at >10x depth"
+  ) +
   scale_color_manual(
     labels = c("False", "True"),
-    values = c("#DD4124FF", "#0F85A0FF")
+    values = c("#FD2929", "#3030FD")
   ) +
   theme_minimal() +
-  theme(text = element_text(family = "Arial"))
+  theme(
+    text = element_text(family = "Arial", size = 12),
+    axis.text = element_text(family = "Arial", size = 12),
+    axis.title = element_text(family = "Arial", size = 12),
+    legend.title = element_text(family = "Arial", size = 12),
+    legend.text = element_text(family = "Arial", size = 12),
+  )
 
 # export the plot
 ggsave("visuals/ct_by_cov.pdf", ct_by_n, height = 5, width = 7)
