@@ -30,11 +30,12 @@ all_counts_plot <- test_counts |>
 
 # save the all counts plot
 ggsave("visuals/all_counts_plot.pdf", all_counts_plot,
-       height = 6, width = 8)
+  height = 6, width = 8
+)
 
 # make a plot that only shows the number of envelopes received and the number
 # sequenced
-two_counts_plot  <- test_counts |>
+two_counts_plot <- test_counts |>
   select(-`# envelopes sent out`) |>
   pivot_longer(
     cols = -Month,
@@ -49,4 +50,5 @@ two_counts_plot  <- test_counts |>
 
 # save the plot with two bars
 ggsave("visuals/two_counts_plot.pdf", two_counts_plot,
-       height = 6, width = 8)
+  height = 6, width = 8
+)

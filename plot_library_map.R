@@ -11,7 +11,8 @@ library_data_path <- "data/Dane_County_Library_Addresses.tsv"
 
 #
 library_df <- read_tsv(library_data_path,
-                       skip = 2, trim_ws = TRUE, show_col_types = FALSE)
+  skip = 2, trim_ws = TRUE, show_col_types = FALSE
+)
 
 # find the latitudes and longitudes for every row
 lat_lons <- lapply(library_df$Address, function(address) {
@@ -72,7 +73,8 @@ plotting_df <- library_df |>
   rename(enrolled = `In program?`) |>
   rename(`Facility Type` = `Bldg Type`) |>
   left_join(
-    facility_indices, by = join_by(`Location Name`)
+    facility_indices,
+    by = join_by(`Location Name`)
   ) |>
   mutate(index = as.factor(index)) |>
   mutate(`Legend Label` = as.factor(`Legend Label`))
@@ -80,15 +82,19 @@ plotting_df <- library_df |>
 # generate the plot
 simple_map <- plotting_df |>
   ggplot(aes(x = longitude, y = latitude, label = index)) +
-  geom_sf(data = dane_co_limits, fill = alpha("white", 0.5),
-          color = "black", inherit.aes = FALSE) +
+  geom_sf(
+    data = dane_co_limits, fill = alpha("white", 0.5),
+    color = "black", inherit.aes = FALSE
+  ) +
   geom_point(
     mapping = aes(shape = factor(if_else(`Facility Type` == "Library", 5, 16))),
     color = if_else(plotting_df$enrolled, "darkgreen", alpha("gray", 0.8)),
     size = 2.5
   ) +
-  scale_shape_manual(values = c(16, 5), labels = c("Clinic", "Library"),
-                     guide = guide_legend(title = "Facility Type")) +
+  scale_shape_manual(
+    values = c(16, 5), labels = c("Clinic", "Library"),
+    guide = guide_legend(title = "Facility Type")
+  ) +
   geom_text(vjust = -1, color = "darkgreen", inherit.aes = TRUE) +
   theme_minimal() +
   theme(
