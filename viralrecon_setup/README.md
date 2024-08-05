@@ -6,7 +6,9 @@
 
 Depending on what resources were available, we ran `viralrecon` on input FASTQ files on either University of Wisconsin-Madison's Center for High Throughput Computing (CHTC) or on a local Apple Mac Studio owned by David H. O'Connor's lab.
 
-### Setup on the CHTC HPC Cluster
+## Setup on the CHTC HPC Cluster
+
+### File Transfers
 
 CHTC maintains a high-performance computing cluster using the Slurm scheduler, which `viralrecon` supports. To run the pipeline on this manuscript's samples there, we first made a directory in the cluster's `scratch` space and downloaded `viralrecon`, like so:
 
@@ -21,6 +23,8 @@ sample,fastq_1,fastq_2
 ```
 
 -   Finally, we transferred the BED-formatted file of primer coordinates that is included in the repo `docs` directory.
+
+### Software Setup
 
 Separately, we also installed `nextflow` and `singularity` in the user's home directory using `conda`. To set up `conda` on a cluster yourself, we recommend following [the official instructions here](https://docs.anaconda.com/miniconda/#quick-command-line-install). In short, download the `miniconda3` installer with:
 
@@ -49,7 +53,7 @@ And finally, use `conda` to install `nextflow` and `singularity`:
 conda install -c bioconda nextflow singularity
 ```
 
-#### `viralrecon` configuration
+### `viralrecon` configuration
 
 Being a Nextflow pipeline, `viralrecon` makes heavy use of configuration files. To configure `viralrecon` to run via the slurm scheduler, we used the following configuration file:
 
@@ -117,7 +121,7 @@ sample,barcode
 70N209581,4
 ```
 
-### Setup on local Apple Mac Studio Desktop
+## Setup on local Apple Mac Studio Desktop
 
 All the above steps were broadly similar for setup on a Mac Desktop, with a few exceptions:
 
@@ -136,3 +140,19 @@ process {
 
 2. We use the Docker container engine instead of Singularity, which must be manually installed on the Desktop.
 3. More transferring of input files was performed by hand in the Finder file explorer instead of with the `rsync` command line utility.
+4. Only Illumina reads were processed locally.
+
+As such, our `viralrecon` run commands on the Mac Studio looked as follows:
+
+```bash
+nextflow run . \
+--input <SAMPLESHEET_NAME>.csv \ # <———— USER-PROVIDED FILE
+--outdir results \
+--platform illumina \
+--protocol amplicon \
+--genome 'MN908947.3' \
+--primer_bed DIRECTwithBoosterAprimersfinal.bed \ # <———— USER-PROVIDED FILE
+--primer_left_suffix '_LEFT' \
+--primer_right_suffix '_RIGHT' \
+--skip_assembly
+```
