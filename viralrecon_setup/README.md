@@ -1,6 +1,6 @@
 # Setting up `nfcore/viralrecon` to align and variant-call manuscript samples
 
-`nf-core/viralrecon` is an open-source Nextflow pipeline that performs much of the bioinformatics users with viral amplicon data would want: read quality control, alignment, variant-calling, consensus-sequence calling, lineage classification, etc. Rather than writing our own pipeline to do these things, we simply downloaded and configured `viralrecon` according to the following specifications.
+[`nf-core/viralrecon`](https://nf-co.re/viralrecon/2.6.0/) is an open-source Nextflow pipeline that performs much of the bioinformatics users with viral amplicon data would want: read quality control, alignment, variant-calling, consensus-sequence calling, lineage classification, etc. Rather than writing our own pipeline to do these things, we simply downloaded and configured `viralrecon` according to the following specifications.
 
 ## Compute Infrastructures Used
 
