@@ -26,6 +26,8 @@ sample,fastq_1,fastq_2
 
 ### Software Setup
 
+### Software Setup
+
 Separately, we also installed `nextflow` and `singularity` in the user's home directory using `conda`. To set up `conda` on a cluster yourself, we recommend following [the official instructions here](https://docs.anaconda.com/miniconda/#quick-command-line-install). In short, download the `miniconda3` installer with:
 
 ```bash
