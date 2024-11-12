@@ -16,7 +16,7 @@ clean_cts <- ct_df |>
     filter(!is.na(`Ct Value`), `Ct Value` < 45)
 
 # write out the plotting data for transparency
-write_tsv(clean_cts, "data/ct_by_n_plotting_data.tsv")
+write_tsv(clean_cts, "../data/ct_by_cov_plotting_data.tsv")
 
 # load fonts
 # font_import()
@@ -45,4 +45,4 @@ ct_by_n <- clean_cts |>
     )
 
 # export the plot
-ggsave("figures/ct_by_cov.pdf", ct_by_n, height = 5, width = 7)
+ggsave("../figures/ct_by_cov.pdf", ct_by_n, height = 5, width = 7)
